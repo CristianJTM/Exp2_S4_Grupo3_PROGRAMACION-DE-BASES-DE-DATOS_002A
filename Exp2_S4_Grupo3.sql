@@ -256,8 +256,8 @@ DECLARE
 
 BEGIN
     -- Limpiamos las tablas antes de llenar los datos
-    EXECUTE IMMEDIATE 'TRUNCATE TABLE DETALLE_APORTE_SBIF';
-    EXECUTE IMMEDIATE 'TRUNCATE TABLE RESUMEN_APORTE_SBIF';
+    EXECUTE IMMEDIATE 'TRUNCATE TABLE detalle_aporte_sbif';
+    EXECUTE IMMEDIATE 'TRUNCATE TABLE resumen_aporte_sbif';
 
     -- Procesamiento de detalle de avances y súper avances
     FOR r_det IN cur_detalle LOOP
@@ -274,7 +274,7 @@ BEGIN
         reg_detalle.aporte_sbif := ROUND(r_det.monto_total_transaccion * r_det.porc_aporte_sbif / 100);
 
         -- Insertamos en la tabla de detalle
-        INSERT INTO DETALLE_APORTE_SBIF
+        INSERT INTO detalle_aporte_sbif
         VALUES reg_detalle;
     END LOOP;
 
@@ -296,7 +296,7 @@ BEGIN
             reg_resumen.mes_anno := r_mes.mes_anno;
 
             -- Insertamos en la tabla de resumen
-            INSERT INTO RESUMEN_APORTE_SBIF
+            INSERT INTO resumen_aporte_sbif
             VALUES reg_resumen;
         END LOOP;
         CLOSE cur_resumen;
@@ -317,5 +317,5 @@ EXCEPTION
 END;
 /
 
-SELECT * FROM DETALLE_APORTE_SBIF;
-SELECT * FROM RESUMEN_APORTE_SBIF;
+SELECT * FROM detalle_aporte_sbif;
+SELECT * FROM resumen_aporte_sbif;
