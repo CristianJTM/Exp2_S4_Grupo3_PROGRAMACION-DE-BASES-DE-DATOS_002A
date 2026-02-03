@@ -137,11 +137,22 @@ BEGIN
 
         -- Insertamos en la tabla de detalle
         INSERT INTO detalle_puntos_tarjeta_catb(
-            numrun, dvrun, nro_tarjeta, nro_transaccion, 
-            fecha_transaccion, tipo_transaccion, monto_transaccion, puntos_allthebest
+            numrun, 
+            dvrun, 
+            nro_tarjeta,
+            nro_transaccion, 
+            fecha_transaccion, 
+            tipo_transaccion, 
+            monto_transaccion, 
+            puntos_allthebest
         ) VALUES (
-            reg_detalle.numrun, reg_detalle.dvrun, reg_detalle.nro_tarjeta, reg_detalle.nro_transaccion,
-            reg_detalle.fecha_transaccion, reg_detalle.tipo_transaccion, reg_detalle.monto_transaccion, 
+            reg_detalle.numrun, 
+            reg_detalle.dvrun, 
+            reg_detalle.nro_tarjeta, 
+            reg_detalle.nro_transaccion,
+            reg_detalle.fecha_transaccion, 
+            reg_detalle.tipo_transaccion, 
+            reg_detalle.monto_transaccion, 
             reg_detalle.puntos_allthebest
         );
 
